@@ -1,0 +1,28 @@
+#include <vector>
+using namespace std;
+
+vector<int> increaseVectorElements(const vector<int>& vec, int n) {
+    vector<int> result;
+    for (int num : vec) {
+        result.push_back(num + n);
+    }
+    return result;
+}
+
+
+#include <gtest/gtest.h>
+#include "your_header_file.hpp" //тут нужно использовать файл с кодом выше :)
+
+TEST(IncreaseVectorElementsTest, PositiveNumbers) {
+    std::vector<int> input = {1, 2, 3, 4, 5};
+    int n = 10;
+    std::vector<int> expected = {11, 12, 13, 14, 15};
+    ASSERT_EQ(increaseVectorElements(input, n), expected);
+}
+
+TEST(IncreaseVectorElementsTest, NegativeNumbers) {
+    std::vector<int> input = {-1, -2, -3, -4, -5};
+    int n = 5;
+    std::vector<int> expected = {4, 3, 2, 1, 0};
+    ASSERT_EQ(increaseVectorElements(input, n), expected);
+}
